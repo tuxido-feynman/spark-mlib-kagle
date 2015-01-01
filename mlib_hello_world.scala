@@ -5,8 +5,8 @@ import org.apache.spark.mllib.regression.LabeledPoint
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.util.MLUtils
 
-// Load training data in LIBSVM format.
-val data = MLUtils.loadLibSVMFile(sc, "data/mllib/sample_libsvm_data.txt")
+// Load training data in LIBSVM format. Assumes running on Mesosphere.
+val data = MLUtils.loadLibSVMFile(sc, "hdfs://10.132.140.39/examples/sample_libsvm_data.txt")
 
 // Split data into training (60%) and test (40%).
 val splits = data.randomSplit(Array(0.6, 0.4), seed = 11L)
